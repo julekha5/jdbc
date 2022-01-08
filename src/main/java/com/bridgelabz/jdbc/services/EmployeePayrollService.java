@@ -5,10 +5,12 @@ import java.util.Locale;
 public class EmployeePayrollService {
 
     EmployeePayrollRepository repository = new EmployeePayrollRepository();
+
     public static void main(String[] args) {
         EmployeePayrollService service = new EmployeePayrollService();
         service.retrieveData();
         service.updateSalary("Julekha", 4000000);
+        service.retrieveDataByDate();
     }
 
     private void retrieveData() {
@@ -17,6 +19,10 @@ public class EmployeePayrollService {
 
     private void updateSalary(String name, int basic_pay) {
         repository.updateSalaryUsingPreparedStatement(name.toLowerCase(Locale.ROOT), basic_pay);
+    }
+
+    private void retrieveDataByDate() {
+        System.out.println(repository.retrieveDataByDateRange());
     }
 
 }

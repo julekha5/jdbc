@@ -73,4 +73,28 @@ public class EmployeePayrollRepository {
             e.printStackTrace();
         }
     }
+    //retrieve data of employee of particular date range
+    public List<EmployeeInfo> retrieveDataByDateRange() {
+        List<EmployeeInfo> employeeInfo = new ArrayList<>();
+        try (Connection connection = getConnection()) {
+            //step 3
+            Statement statement = connection.createStatement();
+            String sqlQuery = "select * from employee_payroll\n" +
+                    "where startDate between '2021-04-10' and date(now());\n";
+            ResultSet resultset = statement.executeQuery(sqlQuery);
+            while (resultset.next()) {
+                EmployeeInfo info = new EmployeeInfo();
+                info.setId(resultset.getInt("id"));
+                info.setName(resultset.getString("name"));
+                info.setGender(resultset.getString("gender").charAt(0));
+                info.setAddress(resultset.getString("address"));
+                info.setPhone_number(resultset.getString("phone_number"));
+                info.setStartDate(Date.valueOf(resultset.getDate("startDate").toLocalDate()));
+                employeeInfo.add(info);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employeeInfo;
+    }
 }
