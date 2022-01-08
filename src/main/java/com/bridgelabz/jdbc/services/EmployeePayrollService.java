@@ -5,7 +5,6 @@ import java.util.Locale;
 public class EmployeePayrollService {
 
     EmployeePayrollRepository repository = new EmployeePayrollRepository();
-
     public static void main(String[] args) {
         EmployeePayrollService service = new EmployeePayrollService();
         service.retrieveData();
@@ -17,6 +16,6 @@ public class EmployeePayrollService {
     }
 
     private void updateSalary(String name, int basic_pay) {
-        repository.updateSalary(name.toLowerCase(Locale.ROOT), basic_pay);
+        repository.updateSalaryUsingPreparedStatement(name.toLowerCase(Locale.ROOT), basic_pay);
     }
 }
