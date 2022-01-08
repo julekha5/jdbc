@@ -9,7 +9,7 @@ public class EmployeePayrollService {
     public static void main(String[] args) {
         EmployeePayrollService service = new EmployeePayrollService();
         service.retrieveData();
-        service.updateSalary("Terissa", 3000000);
+        service.updateSalary("Julekha", 4000000);
     }
 
     private void retrieveData() {
@@ -17,6 +17,7 @@ public class EmployeePayrollService {
     }
 
     private void updateSalary(String name, int basic_pay) {
-        repository.updateSalary(name.toLowerCase(Locale.ROOT), basic_pay);
+        repository.updateSalaryUsingPreparedStatement(name.toLowerCase(Locale.ROOT), basic_pay);
     }
+
 }

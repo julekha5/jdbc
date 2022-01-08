@@ -57,4 +57,20 @@ public class EmployeePayrollRepository {
             e.printStackTrace();
         }
     }
+
+    //update salary using prepared statement
+    public void updateSalaryUsingPreparedStatement(String name, int basic_pay){
+        try (Connection connection = getConnection()) {
+            String query = "update employee_payroll set basic_pay = ? where name = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,basic_pay);
+            preparedStatement.setString(2,name);
+            int result = preparedStatement.executeUpdate();
+            if (result >= 1) {
+                System.out.println("salary updated");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
