@@ -1,10 +1,11 @@
-package com.bridgelabz.jdbc;
+package com.bridgelabz.jdbc.connection;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
     public static void main(String[] args) {
+
         //step 1 Load the driver class
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
