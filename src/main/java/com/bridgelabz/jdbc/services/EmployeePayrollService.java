@@ -5,7 +5,6 @@ import java.util.Locale;
 public class EmployeePayrollService {
 
     EmployeePayrollRepository repository = new EmployeePayrollRepository();
-
     public static void main(String[] args) {
         EmployeePayrollService service = new EmployeePayrollService();
         service.retrieveData();

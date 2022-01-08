@@ -1,4 +1,4 @@
-package com.bridgelabz.jdbc.connection;
+package com.bridgelabz.jdbc;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
