@@ -1,6 +1,7 @@
 package com.bridgelabz.jdbc.model;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 public class EmployeeInfo {
     private int id;
@@ -10,6 +11,8 @@ public class EmployeeInfo {
     private String address;
     private String phone_number;
     private String basic_pay;
+    private String salary;
+    private String dept_name[];
 
     public int getId() {
         return id;
@@ -67,6 +70,22 @@ public class EmployeeInfo {
         this.basic_pay = basic_pay;
     }
 
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public String[] getDept_name() {
+        return dept_name;
+    }
+
+    public void setDept_name(String[] dept_name) {
+        this.dept_name = dept_name;
+    }
+
     @Override
     public String toString() {
         return "EmployeeInfo{" +
@@ -77,6 +96,8 @@ public class EmployeeInfo {
                 ", address='" + address + '\'' +
                 ", phone_number='" + phone_number + '\'' +
                 ", basic_pay='" + basic_pay + '\'' +
+                ", salary='" + salary + '\'' +
+                ", dept_name=" + Arrays.toString(dept_name) +
                 '}';
     }
 }

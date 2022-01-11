@@ -1,5 +1,6 @@
 package com.bridgelabz.jdbc.services;
 
+import java.sql.SQLException;
 import java.util.Locale;
 
 public class EmployeePayrollService {
@@ -14,8 +15,8 @@ public class EmployeePayrollService {
         repository.updateSalary(name.toLowerCase(Locale.ROOT), basic_pay);
     }
 
-    public void updateSalaryUsingPreparedStatement(String name, int basic_pay) {
-        repository.updateSalaryUsingPreparedStatement(name.toLowerCase(Locale.ROOT), basic_pay);
+    public void updateSalaryUsingPreparedStatement(String name, int salary) {
+        repository.updateSalaryUsingPreparedStatement(name.toLowerCase(Locale.ROOT), salary);
     }
 
     public void retrieveDataByDate(String sqlQuery) {
@@ -41,18 +42,13 @@ public class EmployeePayrollService {
     public void getCountByGender(String sqlQuery){
         System.out.println(repository.getCountByGender());
     }
+    public void addEmployeeData() {
+        try {
+            System.out.println(repository.addEmployeeData());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-//    public static void main(String[] args) {
-//        EmployeePayrollService service = new EmployeePayrollService();
-//        String sqlQuery = null;
-//        service.retrieveData(null);
-//        service.updateSalary("Julekha", 4000000);
-//        service.updateSalaryUsingPreparedStatement("Kajal", 6200000);
-//        service.retrieveDataByDate(null);
-//        service.getSumOfSalaryByGender(null);
-//        service.getAverageSalaryByGender(null);
-//        service.getMaxSalaryByGender(null);
-//        service.getMinSalaryByGender(null);
-//        service.getCountByGender(null);
-//    }
+
 }
