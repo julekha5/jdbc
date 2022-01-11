@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class EmployeePayrollRepository {
 
-    private Connection getConnection() {
+   public Connection getConnection() {
         Connection connection = null;
         try {
             String JDBCURL = "jdbc:mysql://localhost:3307/emp_payroll_service";
